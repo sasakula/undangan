@@ -958,6 +958,7 @@
                 }
             ],
 
+            showLoveStory: false, // Ubah menjadi true untuk memunculkan cerita cinta
             loveStory: [
                 {
                     title: "Awal Bertemu",
@@ -1107,7 +1108,16 @@
 
         // Render Love Story
         function renderLoveStory() {
+            const section = document.getElementById('lovestory');
             const container = document.getElementById('timeline-container');
+            
+            // Mengecek toggle showLoveStory dari data
+            if (!weddingData.showLoveStory) {
+                section.style.display = 'none';
+                return;
+            }
+            
+            section.style.display = 'block';
             let html = '';
             weddingData.loveStory.forEach(story => {
                 html += `
